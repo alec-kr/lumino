@@ -287,6 +287,10 @@ export class CommandPalette extends Widget {
    * A message handler invoked on an `'update-request'` message.
    */
   protected onUpdateRequest(msg: Message): void {
+    if (this.isHidden()) {
+      return;
+    }
+
     // Fetch the current query text and content node.
     let query = this.inputNode.value;
     let contentNode = this.contentNode;
